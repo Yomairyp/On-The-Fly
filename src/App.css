@@ -76,3 +76,29 @@ input[type="text"] {
   background-color: black;
   color: white;
 }
+
+.EventForm {
+  text-decoration: none;
+  display: inline-block;
+  background-color: lightblue;
+  line-height: 4rem;
+  padding: .3rem 2rem;
+  border-radius: 10px;
+  border: 1px solid #000;
+  color: #000;
+  font-weight: bolder;
+  margin: 1rem;
+}
+
+a.LinkButton {
+  text-decoration: none;
+  display: inline-block;
+  background-color: rgba(86, 157, 223, 0.835);
+  line-height: 4rem;
+  padding: .3rem 2rem;
+  border-radius: 10px;
+  border: 1px solid #000;
+  color: #000;
+  font-weight: bold;
+  margin: 1rem;
+}

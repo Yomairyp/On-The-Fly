@@ -15,7 +15,8 @@ class EventForm extends Component {
       isClickedOn: false,
       zipCode: 0,
       valid: false,
-      results: []
+      results: [],
+      events: [],
     };
 
     // binding
@@ -46,7 +47,9 @@ class EventForm extends Component {
     myarray.push(activityOne, activityTwo, activityThree);
       console.log('data: ', myarray);
 
-      this.mapResponse(myarray)
+      let eventsResult = this.mapResponse(myarray)
+      console.log("the events: ",eventsResult)
+      this.setState({ events: eventsResult })
 
     }
   }
@@ -124,8 +127,11 @@ async searchByZip(event) {
 }
 
 mapResponse(res) {
-  res.map((event, key) => {
-    console.log(key, event)
+  return res.map((event) => {
+    console.log(event.name, event.url, event.dates.start)
+      let evDate = new Date(event.dates.start.dateTime).toGMTString()
+      
+      return { name: event.name, url: event.url, dates: evDate }
   })
 }
 
@@ -168,8 +174,21 @@ render() {
           valid={this.state.valid}
           zipCode={this.state.zipCode}
         />
-      <div><Route path="/eventlist" component={EventList} /></div>
+      <div></div>
       </form>
+      { this.state.events.map( (event, index) => {
+          return (
+            <div className="EventForm" key={index}>
+              <header>
+                { event.name }
+              </header>
+             
+              <a className="LinkButton" href={event.url}>Event Info</a>
+              
+              <p>Time: {event.dates }</p>
+            </div>
+          )
+      })}
     </div>
   );
 }

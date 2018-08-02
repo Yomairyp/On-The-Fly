@@ -24,15 +24,6 @@ class EventList extends Component {
   }
 }
 
-//   break;omponent
-//
-// const EventList = props => {
-//   return <div className="event-listing">
-//     console.log("props")
-//     console.log({this.props})
-//      <p>  {this.props} </p>
-//   </div>
-//
-// };
+
 
 export default EventList;
